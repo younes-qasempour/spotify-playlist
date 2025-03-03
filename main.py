@@ -21,7 +21,6 @@ sp = spotipy.Spotify(
         username=os.getenv("USER_NAME")
     )
 )
-
 current_user_id = sp.current_user()['id']
 users_date = input("Which year do you want to travel to ? Type the date in this format YYYY-MM-DD: ")
 year = users_date.split("-")[0]
@@ -35,7 +34,6 @@ song_elements = soup.select(selector="div li ul h3")
 songs_name = [song.get_text().strip() for song in song_elements]
 
 song_uris = []
-
 for song in songs_name:
     result = sp.search(q=f"track:{song} year:{year}", type="track")
     try:
